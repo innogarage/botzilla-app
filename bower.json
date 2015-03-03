@@ -25,7 +25,7 @@
     "polymer": "Polymer/polymer",
     "core-scaffold": "Polymer/core-scaffold",
     "paper-input": "Polymer/paper-input",
-    "paper-button": "Polymer/papper-button",
+    "paper-button": "Polymer/paper-button",
     "paper-fab": "Polymer/paper-fab",
     "core-item": "Polymer/core-item",
     "core-ajax": "Polymer/core-ajax"

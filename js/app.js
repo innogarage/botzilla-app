@@ -6,7 +6,7 @@
 
 
     toolbar_title = "Welcome in the Botzilla world";
-    avatar = "images/abyssinian.jpg";
+    avatar = "";
 
     token = "385778e421960d0028c68d8cd4fdd5a22f185a6e";
 
