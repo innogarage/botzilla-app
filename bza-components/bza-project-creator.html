@@ -1,0 +1,62 @@
+
+<link href="../../bower_components/core-ajax/core-ajax.html" rel="import">
+<link href="../../bower_components/paper-input/paper-input.html" rel="import">
+<link href="../../bower_components/paper-button/paper-button.html" rel="import">
+
+<polymer-element name="bza-project-creator" attributes="token">
+
+    <template>
+
+        <core-ajax
+                id="ajax_req"
+                url="http://botzilla.bz/api/project/"
+                handleAs="json"
+                method="POST"
+                body='name={{name}}&scrapyd={{scrapyd}}&user_agent={{user_agent}}'
+                headers='{"Authorization": "Token {{token}}"}'
+                on-core-response="{{ handleResponse }}"
+                error="{{ handleError }}">
+        </core-ajax>
+
+
+        <paper-input label="Project name" value="{{name}}"></paper-input>
+        <paper-input label="Scrapyd url endpoint" value="{{scrapyd}}"></paper-input>
+        <paper-input label="User agent" value="{{user_agent}}"></paper-input>
+
+        <paper-button on-click="{{create}}">Create</paper-button>
+
+
+    </template>
+
+
+    <script>
+
+        Polymer('bza-project-creator', {
+            name: "",
+            scrapyd: "http://localhost:6800",
+            user_agent: "",
+
+            ready: function () {
+
+            },
+
+            handleError: function (e) {
+                console.log(e.message);
+            },
+
+            handleResponse: function (e) {
+                var response = e.detail.response;
+                alert(response);
+            },
+
+            create: function() {
+
+                this.$.ajax_req.go();
+
+            }
+
+        });
+
+    </script>
+
+</polymer-element>

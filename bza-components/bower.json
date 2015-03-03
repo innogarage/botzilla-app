@@ -1,0 +1,21 @@
+{
+  "name": "bza",
+  "description": "Botzilla components",
+  "homepage": "http://botzilla.io",
+  "keywords": [
+    "bza"
+  ],
+  "author": "Andrei Botezatu <andrei.botezatu@innogarage.com>",
+  "private": true,
+  "dependencies": {
+    "core-polymer": "Polymer/polymer",
+    "core-core-selector": "Polymer/core-selector",
+    "polymer-jsonp ": "Polymer/polymer-jsonp",
+    "webcomponentsjs": "Polymer/webcomponentsjs"
+  },
+  "devDependencies": {
+    "tools": "Polymer/tools#master",
+    "web-component-tester": "Polymer/web-component-tester"
+  },
+  "version": "0.0.1"
+}

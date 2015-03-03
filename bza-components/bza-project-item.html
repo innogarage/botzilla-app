@@ -1,0 +1,46 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+<link href="../../bower_components/paper-ripple/paper-ripple.html" rel="import">
+
+
+<style>
+
+    .project-item {
+
+        padding: inherit;
+
+    }
+
+    .name {
+
+    }
+
+    .spiders {
+
+    }
+
+
+</style>
+
+<polymer-element name="bza-project-item" attributes="proj_id name scrapyd spiders user_agent">
+
+    <template>
+        <section class="project-item" vertical layout>
+            <paper-ripple fit></paper-ripple>
+            <div class="name">{{name}}</div>
+            <div flex>
+                <div class="spiders">{{spiders}}</div>
+            </div>
+        </section>
+
+    </template>
+
+    <script>
+        Polymer('bza-project-item', {
+            proj_id: 0,
+            name: "",
+            scrapyd: "",
+            spiders: [],
+            user_agent: ""
+        });
+    </script>
+</polymer-element>

@@ -1,0 +1,60 @@
+<link href="../../bower_components/core-ajax/core-ajax.html" rel="import">
+<link href="../../bower_components/paper-input/paper-input.html" rel="import">
+<link href="../../bower_components/paper-button/paper-button.html" rel="import">
+
+<style>
+
+
+</style>
+
+<polymer-element name="bza-login-form" attributes="successEventTrigger" extends="bza-core">
+
+    <template>
+
+        <core-ajax
+                id="ajax_login"
+                url="http://botzilla.bz/api-token-auth/"
+                handleAs="json"
+                method="POST"
+                body='username={{username}}&password={{password}}'
+                on-core-response="{{ handleResponse }}"
+                error="{{ handleError }}">
+        </core-ajax>
+
+
+        <section layout horizontal>
+
+            <paper-input label="Your username" value="{{username}}"></paper-input>
+            <paper-input label="Your password" value="{{password}}"></paper-input>
+
+            <paper-button on-click="{{login}}">Login</paper-button>
+
+        </section>
+    </template>
+
+    <script>
+
+        Polymer('bza-login-form', {
+            username: "",
+            password: "",
+
+            ready: function () {
+
+            },
+
+            handleError: function (e) {
+                console.log(e.message);
+            },
+
+            handleResponse: function (e) {
+                var response = e.detail.response;
+
+            },
+
+            login: function () {
+                this.$.ajax_login.go();
+            }
+
+        });
+    </script>
+</polymer-element>

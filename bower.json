@@ -1,0 +1,33 @@
+{
+  "name": "Botzilla Admin",
+  "version": "0.0.1",
+  "authors": [
+    "Andrei Botezatu <andrei.botezatu@innogarage.com>"
+  ],
+  "description": "Botzilla Admin in Polymer",
+  "keywords": [
+    "botzilla",
+    "bza",
+    "polymer",
+    "material"
+  ],
+  "license": "GNU",
+  "homepage": "http://botzilla.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer",
+    "core-scaffold": "Polymer/core-scaffold",
+    "paper-input": "Polymer/paper-input",
+    "paper-button": "Polymer/papper-button",
+    "paper-fab": "Polymer/paper-fab",
+    "core-item": "Polymer/core-item",
+    "core-ajax": "Polymer/core-ajax"
+  }
+}

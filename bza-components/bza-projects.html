@@ -1,0 +1,80 @@
+<link href="../../bower_components/core-ajax/core-ajax.html" rel="import">
+<link href="../../bower_components/paper-fab/paper-fab.html" rel="import">
+<link href="../../bower_components/core-selector/core-selector.html" rel="import">
+<link href="bza-project-item.html" rel="import">
+<link href="bza-core.html" rel="import">
+
+<style>
+
+    .project-list {
+        padding: 16px;
+    }
+
+    paper-fab {
+        color: #fff;
+        position: absolute;
+        margin-right: 2em;
+    }
+
+    paper-fab.blue {
+        background: #5677fc;
+    }
+
+
+</style>
+
+<polymer-element name="bza-projects" attributes="token" extends="bza-core">
+
+    <template>
+
+        <core-ajax
+                auto
+                url="http://botzilla.bz/api/project/"
+                handleAs="json"
+                method="GET"
+                headers='{"Authorization": "Token {{token}}"}'
+                response="{{projects}}"
+                error="{{ handleError }}">
+        </core-ajax>
+
+
+        <core-selector class="project-list"
+                       layout vertical>
+
+            <template repeat="{{proj in projects}}">
+                <bza-project-item
+                        proj_id="{{ proj.id }}"
+                        name="{{ proj.name }}"
+                        scrapyd="{{ proj.scrapyd }}"
+                        spiders="{{ proj.spider }}"
+                        user_agent="{{ proj.user_agent }}">
+                </bza-project-item>
+            </template>
+
+        </core-selector>
+
+        <paper-fab icon="create" class="blue" title="create" on-tap="{{createProject}}"></paper-fab>
+
+    </template>
+
+    <script>
+
+        Polymer('bza-projects', {
+            projects: [],
+
+            ready: function () {
+
+            },
+
+            handleError: function (e) {
+                this.fire('bza-event-request-failed', {param: value});
+            },
+
+            createProject: function() {
+
+            }
+
+
+        });
+    </script>
+</polymer-element>
